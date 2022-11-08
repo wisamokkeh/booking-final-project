@@ -1,6 +1,5 @@
 package hotelTests;
 
-
 import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,16 +27,15 @@ public class TestHotelWithFilter {
 		driver = OpenBrowsers.openBrowser("chrome");
 		driver.manage().window().maximize();
 
-
 	}
 
 	@DataProvider(name = "Data")
-	public Object[][] getData() throws Exception{
+	public Object[][] getData() throws Exception {
 		List<String[]> lines = ReadCsvFile.readAllLines("input.csv");
 		lines.remove(0);
 		Object[][] data = new Object[lines.size()][lines.get(0).length];
 		int index = 0;
-		for(String[] line : lines) {
+		for (String[] line : lines) {
 			data[index] = line;
 			index++;
 		}
@@ -46,22 +44,22 @@ public class TestHotelWithFilter {
 
 	@Test(dataProvider = "Data")
 	public void testSearch(String city, String checkIn, String checkOut) throws InterruptedException, IOException {
-		//open website
+		// open website
 		driver.get(Constans.URL);
 		Thread.sleep(1000);
-		//select the city
+		// select the city
 		HomePage homepage = new HomePage(driver);
-		homepage.Search(city , checkIn , checkOut);
+		homepage.Search(city, checkIn, checkOut);
 		Thread.sleep(2000);
 		Filter filter = new Filter(driver);
 		Thread.sleep(2000);
 		filter.clickFilter();
 		Thread.sleep(2000);
-		
+
 		ResultsPage resultPage = new ResultsPage(driver);
 		Thread.sleep(2000);
 		int price = resultPage.getPrice(1);
-		assertTrue(price>=0 && price<=50);
+		assertTrue(price >= 0 && price <= 50);
 
 	}
 
@@ -71,5 +69,3 @@ public class TestHotelWithFilter {
 	}
 
 }
-
-

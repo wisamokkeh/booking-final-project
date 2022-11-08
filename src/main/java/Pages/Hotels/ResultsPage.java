@@ -21,20 +21,21 @@ public class ResultsPage {
 		this.firstAddress = driver.findElements(By.xpath(Constans.address)).get(0);
 
 	}
-	public void openFirstResult() throws InterruptedException{
+
+	public void openFirstResult() throws InterruptedException {
 		String url = this.firstResult.getAttribute("href");
 		this.driver.get(url);
 	}
 
-	public String getFirstAddress() throws InterruptedException{
+	public String getFirstAddress() throws InterruptedException {
 		return this.firstAddress.getText();
 	}
 
-	public int getPrice(int i) throws InterruptedException{
+	public int getPrice(int i) throws InterruptedException {
 		this.priceResult = driver.findElements(By.xpath(Constans.price));
 
 		String priceText = this.priceResult.get(i).getText();
-		String priceValue =  priceText.replace("US$", "");
+		String priceValue = priceText.replace("US$", "");
 		int price = Integer.parseInt(priceValue);
 		return price;
 	}

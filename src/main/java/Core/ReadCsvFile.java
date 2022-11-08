@@ -19,11 +19,10 @@ public class ReadCsvFile {
 
 		while ((record = reader.readNext()) != null) {
 			data.add(record);
-			
-		}		
+
+		}
 		reader.close();
 		return data;
 	}
-	
 
 }

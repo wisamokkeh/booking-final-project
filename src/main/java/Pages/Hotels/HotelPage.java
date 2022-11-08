@@ -13,7 +13,6 @@ public class HotelPage {
 	WebElement hotelRate;
 	WebElement hotelCity;
 
-
 	public HotelPage(WebDriver driver) {
 		this.driver = driver;
 		this.hotelName = driver.findElement(By.xpath(Constans.hotelName));
@@ -21,13 +20,16 @@ public class HotelPage {
 		this.hotelCity = driver.findElement(By.xpath(Constans.hotelLocation));
 
 	}
-	public String getHotelName(){
+
+	public String getHotelName() {
 		return this.hotelName.getText();
 	}
-	public String getHotelRate(){
+
+	public String getHotelRate() {
 		return this.hotelRate.getText();
 	}
-	public String getHotelCity(){
+
+	public String getHotelCity() {
 		return this.hotelCity.getText();
 	}
 }

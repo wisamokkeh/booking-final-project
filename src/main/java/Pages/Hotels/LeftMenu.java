@@ -10,12 +10,12 @@ public class LeftMenu {
 
 	WebElement cityName;
 	WebDriver driver;
-	
-	public  LeftMenu(WebDriver driver){
+
+	public LeftMenu(WebDriver driver) {
 		this.driver = driver;
 		this.cityName = driver.findElement(By.name(Constans.search));
 	}
-	
+
 	public String getCity() {
 		return this.cityName.getAttribute("value");
 	}

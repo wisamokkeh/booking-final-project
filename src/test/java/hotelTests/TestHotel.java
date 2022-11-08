@@ -38,16 +38,15 @@ public class TestHotel {
 		driver = OpenBrowsers.openBrowser("chrome");
 		driver.manage().window().maximize();
 
-
 	}
 
 	@DataProvider(name = "Data")
-	public Object[][] getData() throws Exception{
+	public Object[][] getData() throws Exception {
 		List<String[]> lines = ReadCsvFile.readAllLines("input.csv");
 		lines.remove(0);
 		Object[][] data = new Object[lines.size()][lines.get(0).length];
 		int index = 0;
-		for(String[] line : lines) {
+		for (String[] line : lines) {
 			data[index] = line;
 			index++;
 		}
@@ -56,79 +55,71 @@ public class TestHotel {
 
 	@Test(dataProvider = "Data")
 	public void testSearch(String city, String checkIn, String checkOut) throws InterruptedException, IOException {
-		//open website
+		// open website
 		driver.get(Constans.URL);
 		Thread.sleep(1000);
 
-		//select the city
+		// select the city
 		HomePage homepage = new HomePage(driver);
-		homepage.Search(city , checkIn , checkOut);
+		homepage.Search(city, checkIn, checkOut);
 
-
-
-		//Screenshot
+		// Screenshot
 		TestHotel.attachImgToAllure(driver, "img1.png");
 
-
-
-		//select first result
+		// select first result
 		Thread.sleep(2000);
 
-
-		//assert city
+		// assert city
 		LeftMenu leftmenu = new LeftMenu(driver);
 		String cityResult = leftmenu.getCity();
 		assertEquals(cityResult.toLowerCase(), city.toLowerCase());
 
 		ResultsPage resultpage = new ResultsPage(driver);
 
-		//assert results with city
+		// assert results with city
 		String cityInResult = resultpage.getFirstAddress();
 		assertTrue(cityInResult.toLowerCase().contains(city.toLowerCase()));
 
-
 		resultpage.openFirstResult();
-
 
 		Thread.sleep(5000);
 
-		//get url result
+		// get url result
 		String currentUrl = driver.getCurrentUrl();
 		Thread.sleep(5000);
 
 		HotelPage hotelPage = new HotelPage(driver);
-		//get hotel name
+		// get hotel name
 		String hotelName = hotelPage.getHotelName();
 
-		//get hotel rate
-		String hotelRate =hotelPage.getHotelRate();
+		// get hotel rate
+		String hotelRate = hotelPage.getHotelRate();
 
-		//get hotel city
+		// get hotel city
 		String hotelCity = hotelPage.getHotelCity();
 		assertTrue(hotelCity.toLowerCase().contains(city.toLowerCase()));
 
-//		assertTrue(price>=0 && price<=50);
-//		String ii = "5";
-//		int i = Integer.parseInt(ii);
+		// assertTrue(price>=0 && price<=50);
+		// String ii = "5";
+		// int i = Integer.parseInt(ii);
 
-		//Screenshot
+		// Screenshot
 		TestHotel.attachImgToAllure(driver, "img2.png");
 
-
-		//get data to write in csv file
-		String[] lineDetails = {currentUrl,hotelName,hotelRate, city , checkIn , checkOut};
+		// get data to write in csv file
+		String[] lineDetails = { currentUrl, hotelName, hotelRate, city, checkIn, checkOut };
 		datas.add(lineDetails);
 
 	}
 
 	@AfterClass
 	public void afterClass() {
-		String[] headers = {"Url", "Hotel Name", "Hotel Rate" , "City" , "Chek In" , "Chek Out"};
+		String[] headers = { "Url", "Hotel Name", "Hotel Rate", "City", "Chek In", "Chek Out" };
 		WriteCsvFile.writeDataLineByLine("output.csv", datas, headers);
 		driver.quit();
 	}
 
-	public static void attachImgToAllure(WebDriver driver , String fileName) throws IOException {
+	public static void attachImgToAllure(WebDriver driver, String fileName) throws IOException {
 		TakesScreenshot scrShot = ((TakesScreenshot) driver);
 		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
 		File DestFile = new File(fileName);
@@ -136,5 +127,3 @@ public class TestHotel {
 		Allure.addAttachment("Screenshot", FileUtils.openInputStream(SrcFile));
 	}
 }
-
-
