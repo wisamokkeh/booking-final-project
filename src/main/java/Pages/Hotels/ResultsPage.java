@@ -33,7 +33,6 @@ public class ResultsPage {
 
 	public int getPrice(int i) throws InterruptedException {
 		this.priceResult = driver.findElements(By.xpath(Constans.price));
-
 		String priceText = this.priceResult.get(i).getText();
 		String priceValue = priceText.replace("US$", "");
 		int price = Integer.parseInt(priceValue);

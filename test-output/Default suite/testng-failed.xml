@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="hotelTests.TestHotelWithFilter">
+      <class name="serviceTest.testService">
         <methods>
-          <include name="afterClass"/>
-          <include name="testSearch" invocation-numbers="0 1 2"/>
           <include name="beforeClass"/>
+          <include name="afterMethod"/>
+          <include name="testSearch" invocation-numbers="1"/>
         </methods>
-      </class> <!-- hotelTests.TestHotelWithFilter -->
+      </class> <!-- serviceTest.testService -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

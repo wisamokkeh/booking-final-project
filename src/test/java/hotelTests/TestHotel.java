@@ -99,10 +99,6 @@ public class TestHotel {
 		String hotelCity = hotelPage.getHotelCity();
 		assertTrue(hotelCity.toLowerCase().contains(city.toLowerCase()));
 
-		// assertTrue(price>=0 && price<=50);
-		// String ii = "5";
-		// int i = Integer.parseInt(ii);
-
 		// Screenshot
 		TestHotel.attachImgToAllure(driver, "img2.png");
 

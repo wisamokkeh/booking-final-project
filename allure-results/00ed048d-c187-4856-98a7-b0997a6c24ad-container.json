@@ -1,0 +1,1 @@
+{"uuid":"00ed048d-c187-4856-98a7-b0997a6c24ad","name":"serviceTest.testService","children":["01fedc7c-edb4-45fe-81f8-ea8dc92b429d"],"befores":[{"name":"beforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1668029604609,"stop":1668029606056}],"afters":[],"start":1668029604578,"stop":1668029606137}

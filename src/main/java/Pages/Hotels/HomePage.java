@@ -14,6 +14,7 @@ public class HomePage {
 	WebElement checkinDateClick;
 	WebElement btnDateChoice;
 	WebElement btnClear;
+	WebElement service;
 	JavascriptExecutor js;
 
 	public HomePage(WebDriver driver) {
@@ -29,6 +30,8 @@ public class HomePage {
 			// TODO: handle exception
 		}
 		this.js = (JavascriptExecutor) driver;
+		
+		this.service = driver.findElement(By.xpath(Constans.servicePage));
 
 	}
 
@@ -40,4 +43,11 @@ public class HomePage {
 		js.executeScript("document.querySelector('[data-date=\"" + checkOut + "\"]').click();");
 		this.btnDateChoice.click();
 	}
+	
+	public void openServiceCustmer() throws InterruptedException {
+		this.service.click();;
+	}
+
+	
+	
 }
