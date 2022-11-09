@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-11-10T00:27:18 IST" name="Default suite" finished-at="2022-11-10T00:28:12 IST" duration-ms="54176">
+  <suite started-at="2022-11-10T00:57:34 IST" name="Default suite" finished-at="2022-11-10T00:58:26 IST" duration-ms="52481">
     <groups>
     </groups>
-    <test started-at="2022-11-10T00:27:18 IST" name="Default test" finished-at="2022-11-10T00:28:12 IST" duration-ms="54176">
+    <test started-at="2022-11-10T00:57:34 IST" name="Default test" finished-at="2022-11-10T00:58:26 IST" duration-ms="52481">
       <class name="serviceTest.testService">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:serviceTest.testService@3403e2ac]" started-at="2022-11-10T00:27:18 IST" name="beforeClass" finished-at="2022-11-10T00:27:18 IST" duration-ms="20" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:serviceTest.testService@3403e2ac]" started-at="2022-11-10T00:57:34 IST" name="beforeClass" finished-at="2022-11-10T00:57:34 IST" duration-ms="16" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="testSearch(java.lang.String,java.lang.String)[pri:0, instance:serviceTest.testService@3403e2ac]" started-at="2022-11-10T00:27:18 IST" name="testSearch" data-provider="Data" finished-at="2022-11-10T00:27:45 IST" duration-ms="27258" status="PASS">
+        <test-method signature="testSearch(java.lang.String,java.lang.String)[pri:0, instance:serviceTest.testService@3403e2ac]" started-at="2022-11-10T00:57:34 IST" name="testSearch" data-provider="Data" finished-at="2022-11-10T00:58:01 IST" duration-ms="26949" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -27,7 +27,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearch -->
-        <test-method signature="testSearch(java.lang.String,java.lang.String)[pri:0, instance:serviceTest.testService@3403e2ac]" started-at="2022-11-10T00:27:45 IST" name="testSearch" data-provider="Data" finished-at="2022-11-10T00:28:12 IST" duration-ms="26791" status="PASS">
+        <test-method signature="testSearch(java.lang.String,java.lang.String)[pri:0, instance:serviceTest.testService@3403e2ac]" started-at="2022-11-10T00:58:01 IST" name="testSearch" data-provider="Data" finished-at="2022-11-10T00:58:26 IST" duration-ms="25400" status="PASS">
           <params>
             <param index="0">
               <value>
